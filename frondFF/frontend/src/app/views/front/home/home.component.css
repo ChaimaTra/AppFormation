@@ -1,0 +1,117 @@
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+/* Section de héros */
+.hero {
+  position: relative; /* Ajouté pour positionner la superposition */
+  background-image: url('/assets/img/labimg.jpg'); /* Chemin absolu */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px 0 20px; /* Ajoute un padding en haut pour laisser de l'espace pour la navbar */
+  color: #fff; /* Couleur du texte */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Superposition noire semi-transparente */
+  z-index: 1; /* Assure que la superposition est au-dessus de l'image de fond */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Assure que le texte est au-dessus de la superposition */
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre portée pour améliorer la lisibilité */
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre portée pour améliorer la lisibilité */
+}
+
+.btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  z-index: 2; /* Assure que le bouton est au-dessus de la superposition */
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Section des fonctionnalités */
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.feature {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1.1rem;
+}
+
+/* Media queries pour la réactivité */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature {
+    max-width: 90%;
+    margin: 20px 0;
+  }
+}

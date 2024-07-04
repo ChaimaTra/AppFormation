@@ -1,0 +1,75 @@
+.articles-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  .search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    padding: 10px;
+    margin-right: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #45a049;
+  }
+  
+  .articles-list {
+    margin-top: 20px;
+  }
+  
+  .article-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.3s;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .article-title {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.5em;
+  }
+  
+  .article-title i {
+    color: #4CAF50;
+    margin-right: 10px;
+  }
+  
+  .article-content {
+    color: #666;
+  }
+  

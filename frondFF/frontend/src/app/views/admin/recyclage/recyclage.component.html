@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <h2>Gestion des Informations sur le Recyclage</h2>
+    <form [formGroup]="recyclingForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" id="title" class="form-control" formControlName="title" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Contenu</label>
+            <textarea id="content" class="form-control" formControlName="content" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="videoUrl">URL de la vidéo (optionnel)</label>
+            <input type="text" id="videoUrl" class="form-control" formControlName="videoUrl">
+        </div>
+        <div class="form-group">
+            <label for="videoFile">Joindre un fichier vidéo (optionnel)</label>
+            <input type="file" id="videoFile" class="form-control" (change)="onFileChange($event)">
+        </div>
+        <button type="submit" class="btn btn-primary">{{ editMode ? 'Modifier' : 'Ajouter' }}</button>
+    </form>
+    <h3 class="mt-5">Liste des Articles et Vidéos</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Vidéo</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of recyclingItems; let i = index">
+                <td>{{ item.title }}</td>
+                <td>{{ item.content }}</td>
+                <td>
+                    <ng-container *ngIf="item.videoUrl">
+                        <a [href]="item.videoUrl" target="_blank">{{ item.videoUrl }}</a>
+                    </ng-container>
+                    <ng-container *ngIf="item.videoFile">
+                        {{ item.videoFile.name }}
+                    </ng-container>
+                </td>
+                <td>
+                    <button class="btn btn-warning mr-2" (click)="editItem(i)">Modifier</button>
+                    <button class="btn btn-danger" (click)="deleteItem(i)">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="articles-container">
+    <h1>Informations et Conseils sur le Recyclage</h1>
+    <div class="search-box">
+      <input [(ngModel)]="searchTerm" placeholder="Rechercher des articles" class="search-input" />
+      <button (click)="searchArticles()" class="search-button">Rechercher</button>
+    </div>
+    <div class="articles-list">
+      <div *ngFor="let article of articles" class="article-card">
+        <h2 class="article-title">
+          <i class="fas fa-recycle"></i> {{ article.title }}
+        </h2>
+        <p class="article-content">{{ article.content }}</p>
+      </div>
+    </div>
+  </div>
+  

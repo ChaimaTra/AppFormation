@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <h2>Gestion des Signalements de Déchets</h2>
+    <form (ngSubmit)="addOrUpdateSignalement()">
+      <div class="form-group">
+        <label for="quartier">Quartier</label>
+        <input type="text"
+               id="quartier"
+               class="form-control"
+               [(ngModel)]="quartier"
+               name="quartier"
+               required>
+      </div>
+      <div class="form-group">
+        <label for="date">Date de Signalement</label>
+        <input type="text"
+               id="date"
+               class="form-control"
+               bsDatepicker
+               [(ngModel)]="selectedDate"
+               name="date"
+               required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description"
+                  class="form-control"
+                  [(ngModel)]="description"
+                  name="description"
+                  required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        {{ editIndex === null ? 'Ajouter' : 'Modifier' }}
+      </button>
+    </form>
+    <h3 class="mt-5">Signalements</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Quartier</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let signalement of signalements; let i = index">
+          <td>{{ signalement.date | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ signalement.quartier }}</td>
+          <td>{{ signalement.description }}</td>
+          <style>
+            .button-container {
+              display: flex;
+              gap: 10px;
+            }
+          </style>
+          
+          <td>
+            <span class="button-container">
+              <button class="btn btn-warning" (click)="editSignalement(i)">Modifier</button>
+              <button class="btn btn-danger" (click)="deleteSignalement(i)">Supprimer</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

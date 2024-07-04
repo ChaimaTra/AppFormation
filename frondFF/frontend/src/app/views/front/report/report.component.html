@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()" #reportForm="ngForm">
+    <label for="photo">Photo de la décharge :</label>
+    <input type="file" (change)="onFileChange($event)" required><br><br>
+    
+    <label for="comment">Commentaire :</label>
+    <textarea [(ngModel)]="comment" name="comment" required></textarea><br><br>
+
+    <button type="submit" [disabled]="!reportForm.form.valid">Soumettre le signalement</button>
+</form>

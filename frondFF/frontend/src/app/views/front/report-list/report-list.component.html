@@ -1,0 +1,9 @@
+<div class="report-list">
+    <div *ngFor="let report of reports" class="report-item">
+      <img [src]="'http://localhost:3000/uploads/' + report.photoPath" alt="Photo de la décharge" />
+      <p><strong>Commentaire :</strong> {{ report.comment }}</p>
+      <p><strong>Latitude :</strong> {{ report.latitude }}</p>
+      <p><strong>Longitude :</strong> {{ report.longitude }}</p>
+    </div>
+  </div>
+  

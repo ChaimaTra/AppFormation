@@ -1,0 +1,23 @@
+<div class="collecte-container">
+  <h1>Calendrier de Collecte des Déchets</h1>
+  
+  
+  <form [formGroup]="collecteForm" (ngSubmit)="onSearch()">
+    <div class="form-group">
+      <label for="quartier">Quartier</label>
+      <input id="quartier" formControlName="quartier" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+  </form>
+  <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+
+
+  <div *ngIf="collectes.length > 0">
+    <h2>Jours de Collecte</h2>
+    <ul>
+      <li *ngFor="let collecte of collectes">
+        {{ collecte.date | date }} : {{ collecte.typeDechets }}
+      </li>
+    </ul>
+  </div>
+</div>
